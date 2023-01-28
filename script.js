@@ -1,6 +1,8 @@
+'use strict';
+
 //1.
 
-/*const user = {
+const user = {
   name: 'name',
   age: 30,
   id: 'id',
@@ -17,11 +19,11 @@ Object.defineProperty(user, 'id', {
 });
 console.log(Object.getOwnPropertyDescriptor(user, 'name'));
 console.log(Object.getOwnPropertyDescriptor(user, 'age'));
-console.log(Object.getOwnPropertyDescriptor(user, 'id'));*/
+console.log(Object.getOwnPropertyDescriptor(user, 'id'));
 
 //2.
 
-/*const dataBase = {
+const dataBase = {
   dbName: 'user',
   dbType: 'MySQL',
 };
@@ -35,10 +37,11 @@ const configurateDB = {
 Object.preventExtensions(dataBase);
 console.log(Object.isExtensible(dataBase));
 Object.seal(configurateDB);
-console.log(Object.isSealed(configurateDB));*/
+console.log(Object.isSealed(configurateDB));
+
 //3.
 
-/*const salaries = {
+const salaries = {
   frontend: 2000,
   backend: 1500,
   design: 1000,
@@ -75,7 +78,7 @@ salaries.addSalaries = [
   'design: 1300',
   'manager: 800',
 ];
-console.log(salaries);*/
+console.log(salaries);
 
 //4.
 
@@ -84,3 +87,17 @@ const User = {
   surname: 'Davis',
   age: 25,
 };
+
+Object.defineProperty(User, 'userInfo', {
+  get() {
+    let info = '';
+    for (const i in this) {
+      info += `${i}: ${this[i]}, `;
+    }
+    console.log(info);
+  },
+});
+
+User.userInfo;
+User.login = 'MK_18';
+User.userInfo;
